@@ -1,0 +1,25 @@
+{
+  "name": "ecommerce-part-one",
+  "version": "1.0.0",
+  "description": "eCommerce Project - Part I =================",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bcng/e-commerce-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bcng/e-commerce-1/issues"
+  },
+  "homepage": "https://github.com/bcng/e-commerce-1#readme",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "mongojs": "^1.2.1"
+  }
+}
