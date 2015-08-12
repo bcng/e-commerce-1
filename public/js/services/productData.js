@@ -41,8 +41,13 @@ app.service('productData', function($http, $q) {
     this.updateProductData = function(product) {
         var deferred = $q.defer();
         $http({
-            method: 'DELETE',
-            url: 'http://localhost:3000/product/' + product._id
+            method: 'PUT',
+            url: 'http://localhost:3000/product/' + product._id,
+            data: {
+                title: product.title,
+                description: product.description,
+                price: product.price
+            }
         }).then(function(response) {
             deferred.resolve(response);
         });

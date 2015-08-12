@@ -25,4 +25,5 @@ app.controller('adminCtrl', function($scope, productData) {
             getProducts();
         })
     }
+
 });
