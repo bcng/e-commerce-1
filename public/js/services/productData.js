@@ -6,22 +6,20 @@ app.service('productData', function($http, $q) {
             method: 'GET',
             url: 'http://localhost:3000/product',
         }).then(function(response) {
-            console.log(response);
             deferred.resolve(response.data);
         });
         return deferred.promise;
     };
 
-    this.addProduct = function(item) {
-        console.log(item);
+    this.addProductData = function(product) {
         var deferred = $q.defer();
         $http({
             method: 'POST',
             url: 'http://localhost:3000/product',
             data: {
-                title: item.title,
-                description: item.description,
-                price: item.price
+                title: product.title,
+                description: product.description,
+                price: product.price
             }
         }).then(function(response) {
             deferred.resolve(response);
@@ -29,116 +27,16 @@ app.service('productData', function($http, $q) {
         return deferred.promise;
     };
 
-
-
-
-    // this.getName = function() {
-    //     var deferred = $q.defer();
-    //     $http({
-    //         method: 'GET',
-    //         url: 'http://localhost:8234/api/name'
-    //     }).then(function(response) {
-    //         deferred.resolve(response.data);
-    //     }, function(error) {
-    //         console.log("error: " + error)
-    //     });
-    //     return deferred.promise;
-    // };
-
-    // this.getLocation = function() {
-    //     var deferred = $q.defer();
-    //     $http({
-    //         method: 'GET',
-    //         url: 'http://localhost:8234/api/location'
-    //     }).then(function(response) {
-    //         deferred.resolve(response.data);
-    //     }, function(error) {
-    //         console.log("error: " + error)
-    //     });
-    //     return deferred.promise;
-    // };
-
-    // this.getHobbies = function() {
-    //     var deferred = $q.defer();
-    //     $http({
-    //         method: 'GET',
-    //         url: 'http://localhost:8234/api/hobbies'
-    //     }).then(function(response) {
-    //         deferred.resolve(response.data);
-    //     }, function(error) {
-    //         console.log("error: " + error)
-    //     });
-    //     return deferred.promise;
-    // };
-
-    // this.getOccupations = function() {
-    //     var deferred = $q.defer();
-    //     $http({
-    //         method: 'GET',
-    //         url: 'http://localhost:8234/api/occupations'
-    //     }).then(function(response) {
-    //         deferred.resolve(response.data);
-    //     }, function(error) {
-    //         console.log("error: " + error)
-    //     });
-    //     return deferred.promise;
-    // };
-
-    // this.getSkills = function() {
-    //     var deferred = $q.defer();
-    //     $http({
-    //         method: 'GET',
-    //         url: 'http://localhost:8234/api/skills' 
-    //     }).then(function(response) {
-    //         deferred.resolve(response.data);
-    //     }, function(error) {
-    //         console.log("error: " + error)
-    //     });
-    //     return deferred.promise;
-    // };
-
-    // this.addHobby = function(hobby) {
-    //     var deferred = $q.defer();          
-    //     $http({
-    //         method: 'POST',
-    //         url: 'http://localhost:8234/api/hobbies',
-    //         data: {
-    //             hobbies: hobby
-    //         }
-    //     }).then(function(response) {
-    //         deferred.resolve(response.data);
-    //     });
-    //     return deferred.promise;
-    // }
-
-    // this.addOccupation = function(occupation) {
-    //     var deferred = $q.defer();
-    //     $http({
-    //         method: 'POST',
-    //         url: 'http://localhost:8234/api/occupations',
-    //         data: {
-    //             occupations: occupation
-    //         }
-    //     }).then(function(response) {
-    //         deferred.resolve(response.data);
-    //     });
-    //     return deferred.promise;
-    // }
-
-    // this.addSkill = function(skill, exp) {
-    //     var deferred = $q.defer();
-    //     $http({
-    //         method: 'POST',
-    //         url: 'http://localhost:8234/api/skills',
-    //         data: {
-    //             name: skill,
-    //             experience: exp
-    //         }
-    //     }).then(function(response) {
-    //         deferred.resolve(response.data);
-    //     });
-    //     return deferred.promise;
-    // }
+    this.deleteProductData = function(product) {
+        var deferred = $q.defer();
+        $http({
+            method: 'DELETE',
+            url: 'http://localhost:3000/product/' + product._id
+        }).then(function(response) {
+            deferred.resolve(response);
+        });
+        return deferred.promise;
+    };
 
 
 });

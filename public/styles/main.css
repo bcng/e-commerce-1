@@ -97,6 +97,9 @@ li {
 }
 
 .currency {
-    
+
 }
 
+td {
+    padding: 10px;
+}
