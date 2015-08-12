@@ -1,7 +1,7 @@
 html,
 body {
     /*height: 100%;*/
-    margin: auto;
+    margin: auto;  
 }
 
 .header {
@@ -12,13 +12,17 @@ body {
 }
 
 ul {
-	text-decoration:none;
+	A:link { text-decoration: none; border-bottom:none;}
+	/*text-decoration:none;
+	bord-bottom: none;*/
 }
 
 li {
     display: inline;
     text-decoration: none;
     padding: 5px;
+    text-decoration:none;
+	bord-bottom: none;
 }
 
 .main {
@@ -48,7 +52,8 @@ li {
 .collection-title {
     font-size: 30px;
     padding top: 10px;
-    padding-bottom: 10px
+    padding-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .collection-desc {
@@ -87,7 +92,8 @@ li {
 }
 
 .item-desc {
-    font-size: .5em;
+    font-size: .7em;
+    color: #70A4B1;
 }
 
 .currency {}

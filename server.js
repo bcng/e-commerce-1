@@ -1,8 +1,11 @@
 //Dependencies
 var express = require('express');
-var mongojs = require('mongojs');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+var mongoose = require('mongoose');
+
+//Controllers
+var ProductCtrl = require('./controllers/ProductCtrl');
 
 //Express
 var app = express();
@@ -12,53 +15,22 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(__dirname + '/public'));
 
-
-//Run mongod
-var db = mongojs('store', ['products']);
-
-app.post('/api/products', function(req, res){
-    db.products.save(req.body, function(err, result) {
-        if (!err) {
-            res.json(result);
-        } else {
-            return res.status(500).json(err);
-        }
-    });
-    console.log('post hit');
-})
-app.get('/api/products', function(req, res){
-    db.products.find(req.query, function(err, result) {
-        if (err) {
-            return res.status(500).json(err);
-        } else {
-            res.json(result);
-        }
-    });
-    console.log('get hit');
-})
-app.delete('/api/products', function(req, res){
-    db.products.remove(req.query, function(err, result) {
-        if (!err) {
-            res.json(result);
-        } else {
-            res.status(418).json(err);
-        }
-    })
-    console.log('delete hit');
-})
-app.put('/api/products', function(req, res){
-    db.products.update(req.query, req.body, function(err, result) {
-    	if (!err) {
-    		res.json(result);
-    	} else {
-    		res.status(418).son(err);
-    	}
-    })
-    console.log('put hit');
-})
+// Routes
+app.post('/product', ProductCtrl.create);
+app.get('/product', ProductCtrl.read);
+app.put('/product/:id', ProductCtrl.update);
+app.delete('/product/:id', ProductCtrl.delete);
 
 //API connection
 var port = 3000;
+var mongoUri = 'mongodb://localhost:27017/ecommerce-mongoose';
+
+mongoose.set('debug', true);
+mongoose.connect(mongoUri);
+mongoose.connection.once('open', function() {
+  console.log('connected to mongoDB at: ', mongoUri);
+});
+
 app.listen(port, function() {
     console.log("listening on port " + port)
 });
