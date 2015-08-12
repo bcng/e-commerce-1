@@ -6,13 +6,11 @@
             </div>
         </div>
         <div class="main-content">
-            <div class="product-image" ng-repeat="product in products">
-                <img src="{{product.image}}" />
-                <br>
+            <div class="product-container" ng-repeat="product in products">
                 <div class="product-desc">
-                    <div class="item-title"> {{product.item_title}} </div>
+                    <div class="item-title"> {{product.title}} </div>
                     <hr>
-                    <div class="item-desc">{{product.short_desc}} </div>
+                    <div class="item-desc">{{product.description}} </div>
                     <br>
                     <div class="currency">{{product.price | currency}} </div>
                     <br>

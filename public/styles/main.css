@@ -1,6 +1,6 @@
 html,
 body {
-    /*height: 100%;*/
+    height: 100%;
     margin: auto;  
 }
 
@@ -75,7 +75,7 @@ li {
     justify-content: space-around;
 }
 
-.product-image {
+.product-container {
     display: inline-block;
     float: left;
     width: 200px;
@@ -96,15 +96,7 @@ li {
     color: #70A4B1;
 }
 
-.currency {}
-
-img {
-    width: 100%;
-    height: 100%;
+.currency {
+    
 }
 
-
-/*
-* {
-	outline: 1px  solid red;
-}*/
