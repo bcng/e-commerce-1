@@ -14,6 +14,11 @@ app.config(function($routeProvider) {
         controller: "adminCtrl"
     })
 
+    .when('/add', {
+        templateUrl: "templates/addProduct.html",
+        controller: "adminCtrl"
+    })
+
     .otherwise({
         redirectTo: '/'
     });

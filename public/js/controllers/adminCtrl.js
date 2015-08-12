@@ -21,7 +21,7 @@ app.controller('adminCtrl', function($scope, productData) {
     }
 
     $scope.updateProduct = function(product) {
-        productData.deleteProductData(product).then(function(response) {
+        productData.updateProductData(product).then(function(response) {
             getProducts();
         })
     }

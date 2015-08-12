@@ -38,5 +38,15 @@ app.service('productData', function($http, $q) {
         return deferred.promise;
     };
 
+    this.updateProductData = function(product) {
+        var deferred = $q.defer();
+        $http({
+            method: 'DELETE',
+            url: 'http://localhost:3000/product/' + product._id
+        }).then(function(response) {
+            deferred.resolve(response);
+        });
+        return deferred.promise;
+    };
 
 });
