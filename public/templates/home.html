@@ -1,0 +1,23 @@
+<div class="main">
+    <div class="body">
+        <div class="collection-title-desc">
+            <div class="collection-title"> Shop this Collection </div>
+            <div class="collection-desc">Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="product-image" ng-repeat="product in products">
+                <img src="{{product.image}}" />
+                <br>
+                <div class="product-desc">
+                    <div class="item-title"> {{product.item_title}} </div>
+                    <hr>
+                    <div class="item-desc">{{product.short_desc}} </div>
+                    <br>
+                    <div class="currency">{{product.price | currency}} </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
