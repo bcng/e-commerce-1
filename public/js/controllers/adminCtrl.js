@@ -10,6 +10,9 @@ app.controller('adminCtrl', function($scope, productData) {
     $scope.addNewProduct = function() {
         productData.addProductData($scope.product).then(function(response) {
             getProducts();
+            $scope.product.title = "";
+            $scope.product.description = "";
+            $scope.product.price = "";
         })
     }
 
